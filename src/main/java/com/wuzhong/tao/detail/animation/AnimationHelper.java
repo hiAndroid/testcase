@@ -11,17 +11,23 @@ public class AnimationHelper {
     public static int screen_width;
     public static int screen_height;
 
-    private static TranslateAnimation ANIM_LEFT_IN =
-            new TranslateAnimation(screen_width, 0, 0, 0);
-    private static TranslateAnimation ANIM_RIGHT_OUT =
-            new TranslateAnimation(0, screen_width, 0, 0);
+    private static TranslateAnimation ANIM_LEFT_IN;
+    private static TranslateAnimation ANIM_RIGHT_OUT;
 
-    private static int ANIM_DURATION = 3000;
+    public static void init(int screen_width,int screen_height){
+        AnimationHelper.screen_height = screen_height;
+        AnimationHelper.screen_width = screen_width;
 
-    static {
+        AnimationHelper.ANIM_LEFT_IN = new TranslateAnimation(screen_width, 0, 0, 0);
+        AnimationHelper.ANIM_RIGHT_OUT =
+                new TranslateAnimation(0, screen_width, 0, 0);
+
         ANIM_LEFT_IN.setDuration(ANIM_DURATION);
         ANIM_RIGHT_OUT.setDuration(ANIM_DURATION);
     }
+
+    private static int ANIM_DURATION = 500;
+
 
     public static void leftIn(View fragmentView) {
 //        View fragmentView = getView();

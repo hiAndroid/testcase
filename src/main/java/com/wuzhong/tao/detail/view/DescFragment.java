@@ -6,24 +6,28 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import com.wuzhong.R;
 import com.wuzhong.tao.detail.animation.AnimationHelper;
 
 /**
  * Created by wuzhong on 14-9-2.
  */
-public class RateFragment extends Fragment {
+public class DescFragment extends Fragment {
 
-    public static final String TAG = "RateFragment";
+    public static final String TAG = "DescFragment";
 
     private boolean ready;
+
+    private WebView mWebview;
+    private boolean urlLoaded;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         Log.e(TAG, "on create view");
 
-        return inflater.inflate(R.layout.detail_fragment_rate, container, false);
+        return inflater.inflate(R.layout.detail_fragment_desc, container, false);
 
     }
 
@@ -31,6 +35,8 @@ public class RateFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+
+        mWebview = (WebView) view.findViewById(R.id.webview);
 
         ready = true;
 
@@ -43,6 +49,23 @@ public class RateFragment extends Fragment {
     }
 
     public void show(){
+
+        if(!urlLoaded){
+
+            urlLoaded = true;
+
+            if(null != mWebview){
+
+                mWebview.setNetworkAvailable(true);
+                mWebview.getSettings().setAllowContentAccess(true);
+                mWebview.getSettings().setJavaScriptEnabled(true);
+
+                mWebview.loadUrl("http://hws.m.taobao.com/cache/wdesc/5.0/?id=19842770800");
+
+            }
+
+        }
+
 
         if(ready){
 

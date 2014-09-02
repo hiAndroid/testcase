@@ -19,12 +19,11 @@ public class MyApplication extends Application {
         dm = getResources().getDisplayMetrics();
 
         float density  = dm.density;        // 屏幕密度（像素比例：0.75/1.0/1.5/2.0）
-        int densityDPI = dm.densityDpi;     // 屏幕密度（每寸像素：120/160/240/320）
+//        int densityDPI = dm.densityDpi;     // 屏幕密度（每寸像素：120/160/240/320）
         float xdpi = dm.xdpi;
         float ydpi = dm.ydpi;
 
-        AnimationHelper.screen_width = (int)xdpi;
-        AnimationHelper.screen_height = (int)ydpi;
+        AnimationHelper.init((int)(xdpi * density), (int)(ydpi*density));
 
         Log.e("app", AnimationHelper.screen_width + "dp");
 

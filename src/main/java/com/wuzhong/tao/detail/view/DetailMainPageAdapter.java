@@ -42,7 +42,7 @@ public class DetailMainPageAdapter implements ListAdapter {
     @Override
     public boolean isEnabled(int position) {
 
-        if (7 == position) {
+        if ( 0 == position || 7 == position) {
             return true;
         }
 
