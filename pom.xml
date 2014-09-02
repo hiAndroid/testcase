@@ -26,23 +26,17 @@
             <artifactId>support-v4</artifactId>
             <version>r7</version>
         </dependency>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>support-v4</artifactId>
-            <version>r18</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.taobao.android</groupId>-->
+            <!--<artifactId>taobao_weapp_sdk</artifactId>-->
+            <!--<version>3.0.1-SNAPSHOT</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.taobao.android</groupId>
-            <artifactId>taobao_weapp_sdk</artifactId>
-            <version>3.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.taobao.android</groupId>
-            <artifactId>tao_richview</artifactId>
-            <version>1.8.1</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.taobao.android</groupId>-->
+            <!--<artifactId>tao_richview</artifactId>-->
+            <!--<version>1.8.1</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 	<build>

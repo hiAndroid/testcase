@@ -4,12 +4,13 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_gravity="center_horizontal"
-              android:layout_height="200dp">
+              android:background="@android:color/holo_green_light"
+              android:layout_height="wrap_content">
 
     <ImageView
             android:id="@+id/textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:src="@drawable/image2"/>
 
 

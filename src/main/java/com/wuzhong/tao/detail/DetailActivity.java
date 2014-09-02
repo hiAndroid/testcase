@@ -12,10 +12,7 @@ import android.widget.ListView;
 import com.wuzhong.R;
 import com.wuzhong.tao.detail.animation.AnimationHelper;
 import com.wuzhong.tao.detail.model.Unit;
-import com.wuzhong.tao.detail.view.DescFragment;
-import com.wuzhong.tao.detail.view.DetailMainPageAdapter;
-import com.wuzhong.tao.detail.view.RateFragment;
-import com.wuzhong.tao.detail.view.ViewClickListener;
+import com.wuzhong.tao.detail.view.*;
 
 /**
  * Created by wuzhong on 14-9-2.
@@ -27,6 +24,7 @@ public class DetailActivity extends Activity implements ViewClickListener {
     private FragmentManager fragmentManager;
     private RateFragment rateFragment;
     private DescFragment descFragment;
+    private SKuFragment sKuFragment;
 //    private FragmentTransaction fragmentTransaction;
 
     @Override
@@ -50,6 +48,9 @@ public class DetailActivity extends Activity implements ViewClickListener {
 
         this.descFragment = new DescFragment();
         addFragment(this.descFragment,DescFragment.TAG);
+
+        this.sKuFragment = new SKuFragment();
+        addFragment(sKuFragment,SKuFragment.TAG);
     }
 
     private void addFragment(Fragment fragment,String tag) {
@@ -72,6 +73,10 @@ public class DetailActivity extends Activity implements ViewClickListener {
             descFragment.show();
         }
 
+        if( 6 == unit.type){
+            sKuFragment.show();
+        }
+
     }
 
     @Override
@@ -82,6 +87,10 @@ public class DetailActivity extends Activity implements ViewClickListener {
             }
 
             if(descFragment.hide()){
+                return true;
+            }
+
+            if(sKuFragment.hide()){
                 return true;
             }
 

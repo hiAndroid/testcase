@@ -13,13 +13,14 @@ import com.wuzhong.tao.detail.animation.AnimationHelper;
 /**
  * Created by wuzhong on 14-9-2.
  */
-public class DescFragment extends Fragment {
+public class SKuFragment extends Fragment {
 
-    public static final String TAG = "DescFragment";
+    public static final String TAG = "SkuFragment";
 
     private boolean ready;
 
     private WebView mWebview;
+    private View mBlank;
     private boolean urlLoaded;
 
     @Override
@@ -27,7 +28,7 @@ public class DescFragment extends Fragment {
 
         Log.e(TAG, "on create view");
 
-        return inflater.inflate(R.layout.detail_fragment_desc, container, false);
+        return inflater.inflate(R.layout.detail_fragment_sku, container, false);
 
     }
 
@@ -37,6 +38,14 @@ public class DescFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mWebview = (WebView) view.findViewById(R.id.webview);
+        mBlank = view.findViewById(R.id.blank);
+
+        mBlank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hide();
+            }
+        });
 
         ready = true;
 
@@ -51,7 +60,7 @@ public class DescFragment extends Fragment {
     public void show(){
 
         if(ready){
-            AnimationHelper.leftIn(this.getView());
+            AnimationHelper.upIn(this.getView());
         }
 
         if(!urlLoaded){
@@ -66,7 +75,7 @@ public class DescFragment extends Fragment {
 
 //                mWebview.loadUrl("http://hws.m.taobao.com/cache/wdesc/5.0/?id=19842770800");
 
-                mWebview.loadData("<h1>hello world</h1>","text/html","UTF-8");
+                mWebview.loadData("<h1>hello SKU</h1>","text/html","UTF-8");
             }
 
         }
@@ -79,7 +88,7 @@ public class DescFragment extends Fragment {
     public boolean hide() {
 
         if( null != this.getView() && this.getView().getVisibility() == View.VISIBLE) {
-            AnimationHelper.rightOut(this.getView());
+            AnimationHelper.downOut(this.getView());
             return true;
         }
 

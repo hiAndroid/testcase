@@ -15,15 +15,14 @@ public class MyApplication extends Application {
 
         super.onCreate();
 
-        DisplayMetrics dm = new DisplayMetrics();
-        dm = getResources().getDisplayMetrics();
+        DisplayMetrics dm  = getResources().getDisplayMetrics();
 
-        float density  = dm.density;        // 屏幕密度（像素比例：0.75/1.0/1.5/2.0）
-//        int densityDPI = dm.densityDpi;     // 屏幕密度（每寸像素：120/160/240/320）
-        float xdpi = dm.xdpi;
-        float ydpi = dm.ydpi;
+//        float density  = dm.density;        // 屏幕密度（像素比例：0.75/1.0/1.5/2.0）
+////        int densityDPI = dm.densityDpi;     // 屏幕密度（每寸像素：120/160/240/320）
+//        float xdpi = dm.wi;
+//        float ydpi = dm.ydpi;
 
-        AnimationHelper.init((int)(xdpi * density), (int)(ydpi*density));
+        AnimationHelper.init(dm.widthPixels, dm.heightPixels);
 
         Log.e("app", AnimationHelper.screen_width + "dp");
 
